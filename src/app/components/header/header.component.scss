@@ -1,0 +1,33 @@
+.header{
+    .row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 99vw;
+        justify-content: space-between;
+        
+    
+        .logo-area {
+            display: flex;
+            .logo {
+                border-top-left-radius: 5px;
+                color: orange;
+                width: 4vw;
+            }
+    
+            h2 {
+                margin-top: 25px;
+                text-transform: uppercase;
+            }
+        }
+    
+        .logout {
+            display: flex;
+            padding-right: 15px;
+            font-size: 18px;
+            color: black;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+<div class="create">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+        <h2>Create Campaign</h2>
+        <label for="title">Title</label>
+        <div class="section">
+            <input formControlName="title" id="title" type="text">
+        </div>
+        <div class="error" *ngIf="form.get('title')?.touched && form.get('title')?.invalid">Title is required!</div>
+        <label for="description">Description</label>
+        <div class="section">
+            <input formControlName="description" id="description" type="text">
+        </div>
+        <div class="error" *ngIf="form.get('description')?.touched && form.get('description')?.invalid">Description is required!</div>
+        <label for="score">Campaign Score</label>
+        <div class="section">
+            <input formControlName="score" id="score" type="text">
+        </div>
+        <label for="date">Campaign Date</label>
+        <div class="section">
+            <input readonly formControlName="date" id="date" type="text">
+        </div>
+        <div class="section">
+            <span *ngIf="successMessage" style="color:rgb(111, 190, 32);margin-right: 10px;">Campaign successfully added!</span>
+            <button [disabled]="form.invalid" type="submit">Submit</button>
+        </div>
+    </form>
+</div>

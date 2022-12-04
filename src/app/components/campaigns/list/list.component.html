@@ -1,0 +1,59 @@
+<div class="list">
+    <div *ngFor="let campaign of campaigns; index as i" class="card">
+        <div class="row">
+            <div class="col">
+                <h1>{{campaign.title}}</h1>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <button class="top-button" (click)="edit(i)">Edit</button>
+                    </div>
+                    <div class="col">
+                        <button class="top-button" (click)="delete(i)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row description">
+            {{campaign.description}}
+        </div>
+        <div class="row mt-200">
+            <div class="col">
+                <div class="row align-center">
+                    <button class="button" (click)="minus(i)">-</button>
+                    <strong class="score">{{campaign.score}}</strong>
+                    <button class="button" (click)="plus(i)">+</button>
+                </div>
+            </div>
+            <div class="col date">
+                <h3>{{campaign.date}}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="backdrop" *ngIf="isModalOpen"></div>
+<div class="modal" *ngIf="isModalOpen">
+    <form [formGroup]="form" class="form">
+        <h2>Edit Campaign</h2>
+        <label for="title">Title</label>
+        <div class="section">
+            <input formControlName="title" id="title" type="text">
+        </div>
+        <div class="error" *ngIf="form.get('title')?.touched && form.get('title')?.invalid">Title is required!
+        </div>
+        <label for="description">Description</label>
+        <div class="section">
+            <input formControlName="description" id="description" type="text">
+        </div>
+        <div class="error" *ngIf="form.get('description')?.touched && form.get('description')?.invalid">
+            Description is required!</div>
+        <div class="section">
+            <span *ngIf="successMessage" style="color:rgb(111, 190, 32);margin-right: 10px;">Campaign
+                successfully editted!</span>
+            <button [disabled]="form.invalid" (click)="save()">Save</button>
+            <button (click)="closeModal()">Close</button>
+        </div>
+    </form>
+</div>

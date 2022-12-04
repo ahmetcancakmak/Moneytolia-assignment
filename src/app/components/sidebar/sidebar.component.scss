@@ -1,0 +1,17 @@
+.sidebar{
+    height: 90vh;
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        color: black;
+        font-size: 18px;
+        padding-left: 20px;
+        border-bottom: 1px solid white;
+
+        p{
+            cursor: pointer;
+        }
+    }
+}
+
